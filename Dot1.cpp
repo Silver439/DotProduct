@@ -1,112 +1,108 @@
 #include<iostream>
+#include<fstream>
 #include<string>
+#include<random>
+#include<ctime>
+#include <chrono>
+#include<cmath>
+#include<cblas.h>
 using namespace std;
-string s1, s2;
-bool check(string);
-bool examine(string);
-int len(string);
+char ch;
+float f;
+float f1;
+float f2;
+string s, ss;
 int main()
 {
-    int x1 = 0;
-    int x2 = 0;
-    cout << "Please input a vector:";
-    getline(cin, s1);
-    int len1 = len(s1)+1;
-    float* v1 = new float[len1];
-    cout << "Please input another vector:";
-    getline(cin, s2);
-    int len2 = len(s2)+1;
-    float* v2 = new float[len2];
-    if (!check(s1) || !check(s2)) cout << "Please input a vector like 1,2,3,4";
-    else if (len1 != len2) cout << "Please input two that have same lenth!";
-    else
-    {
-        if(s1[0]==',') cout << "Error!Please input a vector like 1,2,3,4";
-        else
-        {
-            int k1 = 0;
-            for (int i = 0; i < s1.size(); i++)
-            {
-                if (s1[i] == ','||i==s1.size()-1)
-                {
-                    if (i == s1.size() - 1) i++;
-                    if(i==k1) cout << "Error!Please input a vector like 1,2,3,4";
-                    else
-                    {
-                        if(!examine(s1.substr(k1,i-k1))) cout << "Error!Please input a vector like 1,2,3,4";
-                        else
-                        {
-                            v1[x1] = stod(s1.substr(k1, i - k1));
-                            x1 += 1;
-                            k1 = i+1;
-                        }
-                    }
-                }
-            }
-        }
-        if (s2[0] == ',') cout << "Error!Please input a vector like 1,2,3,4";
-        else
-        {
-            int k2 = 0;
-            for (int i = 0; i < s2.size(); i++)
-            {
-                if (s2[i] == ','||i == s2.size() - 1)
-                {
-                    if (i == s2.size() - 1) i++;
-                    if (i == k2) cout << "Error!Please input a vector like 1,2,3,4";
-                    else
-                    {
-                        if (!examine(s2.substr(k2, i - k2))) cout << "Error!Please input a vector like 1,2,3,4";
-                        else
-                        {
-                            v2[x2] = stod(s2.substr(k2, i - k2));
-                            x2 += 1;
-                            k2 = i+1;
-                        }
-                    }
-                }
-            }
-        }
-        float result=0;
-        for (int i = 0; i < len1; i++)
-        {
-            result += v1[i] * v2[i];
-        }
-        cout << result;
-    }
-    return 0;
+	/*ofstream ofile1("f3.dat",ios::out|ios::binary);
+	if (ofile1.is_open())
+	{
+		default_random_engine e(time(0));
+		uniform_real_distribution<float> u(-1000,1000);
+		for (int i = 0; i < 200000000; i++)
+		{
+			f = u(e);
+			ofile1.write(reinterpret_cast<char*>(&f), sizeof(f));
+		}
+		ofile1.close();
+	}*/
+	/*ofstream ofile2("f4.dat", ios::out | ios::binary);
+	if (ofile2.is_open())
+	{
+		default_random_engine r;
+		uniform_real_distribution<float> o(-1000, 1000);
+		for (int i = 0; i < 200000000; i++)
+		{
+			f = o(r);
+			ofile2.write(reinterpret_cast<char*>(&f), sizeof(f));
+		}
+		ofile2.close();
+	}*/
+	double sum = 0.0;
+	ifstream ifile1("f3.dat");
+	ifstream ifile2("f4.dat");
+	float* v1 = new float[200000000];
+	float* v2 = new float[200000000];
+	if (ifile1.is_open() && ifile2.is_open())
+	{
+		for (int i = 0; i < 200000000; i++)
+		{
+			ifile1.read(reinterpret_cast<char*>(&f1), sizeof(f1));
+			ifile2.read(reinterpret_cast<char*>(&f2), sizeof(f2));
+			v1[i] = f1;
+			v2[i] = f2;
+		}
+		ifile1.close();
+		ifile2.close();
+	}
+	auto start = std::chrono::steady_clock::now();
+	for (int i = 0; i < 199999980; i+=20)
+	{
+		sum += v1[i] * v2[i]
+			+ v1[i + 1] * v2[i + 1]
+			+ v1[i + 2] * v2[i + 2]
+			+ v1[i + 3] * v2[i + 3]
+			+ v1[i + 4] * v2[i + 4]
+			+ v1[i + 5] * v2[i + 5]
+			+ v1[i + 6] * v2[i + 6]
+			+ v1[i + 7] * v2[i + 7]
+			+ v1[i + 8] * v2[i + 8]
+			+ v1[i + 9] * v2[i + 9]
+			+ v1[i + 10] * v2[i + 10]
+			+ v1[i + 11] * v2[i + 11]
+			+ v1[i + 12] * v2[i + 12]
+			+ v1[i + 13] * v2[i + 13]
+			+ v1[i + 14] * v2[i + 14]
+			+ v1[i + 15] * v2[i + 15]
+			+ v1[i + 16] * v2[i + 16]
+			+ v1[i + 17] * v2[i + 17]
+			+ v1[i + 18] * v2[i + 18]
+			+ v1[i + 19] * v2[i + 19];
+	}
+	auto end = std::chrono::steady_clock::now();
+	cout << sum << endl;
+	cout<<"用时 "<< std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count() << "ms.\n";
 }
-bool check(string s)
+/*double mul(string s1, string s2)
 {
-    bool b=1;
-    for (int i = 0; i < s.size(); i++)
-    {
-        if ((s[i] >= 48 && s[i] <= 57) || s[i] == ','||s[i]=='.') continue;
-        else
-        {
-            b = 0;
-            break;
-        }
-    }
-    return b;
-}
-bool examine(string s)
-{
-    bool e = 1;
-    int ex = 0;
-    for (int i = 0; i < s.size(); i++)
-    {
-        if (s[i] == '.') ex++;
-    }
-    if (ex >= 2) e = 0;
-    return e;
-}
-int len(string s)
-{
-    int le = 0;
-    for (int i = 0; i < s.size(); i++)
-    {
-        if (s[i] == ',') le++;
-    }
-    return le;
-}
+	int m = 0;
+	for (int i = 0; i < s1.size(); i++)
+	{
+		if (s1[i] == '.')
+		{
+			m += s1.size() - i - 1;
+			s1.erase(i, 1);
+			break;
+		}
+	}
+	for (int i = 0; i < s2.size(); i++)
+	{
+		if (s2[i] == '.')
+		{
+			m += s2.size() - i - 1;
+			s2.erase(i, 1);
+			break;
+		}
+	}
+	return stod(s1) * stod(s2) / pow(10, m);
+}*/
