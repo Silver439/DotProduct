@@ -100,7 +100,7 @@
    * 这里check2（）在处理异常的同时还记录了该字符串内所含数字的多少。
  * 以下是一些异常输入以及对应的输出结果：
    
-   * ![Screenshot 2020-10-12 224115](E:\code\DotProduct\picture\Screenshot 2020-10-12 224115.png)
+   * ![Screenshot 2020-10-12 224115](![Alt text](https://github.com\Silver439\DotProduct\raw\master\picture\Screenshot 2020-10-12 224115.png)
    * ![Screenshot 2020-10-12 224307](E:\code\DotProduct\picture\Screenshot 2020-10-12 224307.png)
    * ![Screenshot 2020-10-12 224452](E:\code\DotProduct\picture\Screenshot 2020-10-12 224452.png)
    * 用户输入数字间的空格数没有限制，例如1     1 1是可以被允许的：
