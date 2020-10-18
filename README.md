@@ -65,7 +65,7 @@
      这里使用了openblas中的cblas_sdot()函数来与上述方法进行对比。
 * 测试结果如下：
    
-   * ![Screenshot 2020-10-18 191828](https://github.com/Silver439/DotProduct/raw/master/picture/Screenshot%2020-10-18%191828.png)
+   * ![Screenshot 2020-10-18 191828](https://github.com/Silver439/DotProduct/blob/master/picture/Screenshot%202020-10-18%20191828.png)
    * ![Screenshot 2020-10-18 192930](https://github.com/Silver439/DotProduct/raw/master/picture/Screenshot%2020-10-18%192930.png)
    * 以上两个结果所用测试数据分别为两组个数为200M，范围-1000——1000的浮点数。可以看到用float进行两亿次计算后精度损失非常大。单从效率来看，分块要优于并行，固以下主程序设计中我的计算将用分块处理。
 ## 主程序：
