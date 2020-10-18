@@ -194,7 +194,7 @@
   ```
    * 结果测试：
    * ![Screenshot 2020-10-18 193735](https://github.com/Silver439/DotProduct/blob/master/picture/Screenshot%202020-10-18%20193735.png)
-   * ![Screenshot 2020-10-18 201414](https://github.com/Silver439/DotProduct/blob/master/picture/Screenshot%202020-10-18%20202056.png)
+   * ![Screenshot 2020-10-18 201414](https://github.com/Silver439/DotProduct/blob/master/picture/Screenshot%202020-10-18%20201414.png)
 
  *以上便是我在此次作业中完成的功能。本次作业我花费时间较长，有很大一部分时间在处理计算的精度问题。我在测试代码中也通过字符串的处理方式写了小数高精度乘法，但在200M数据情况下运行所花费时间极其长久，完全没有应用价值。的确既想要精度又想要速度是很难实现的。本次优化算法其实比较简单，但是效率的提升还是比较明显。最终的结果无论是在精度还是速度上都与openblas有较大差距，但在不断优化尝试的过程中我也收益良多。
 
