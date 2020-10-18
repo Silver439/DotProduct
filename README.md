@@ -65,8 +65,8 @@
      这里使用了openblas中的cblas_sdot()函数来与上述方法进行对比。
 * 测试结果如下：
    
-   * ![Screenshot 2020-10-18 191828](https://github.com/Silver439/DotProduct/blob/master/picture/Screenshot%2020-10-18%191828.png)
-   * ![Screenshot 2020-10-18 192930](https://github.com/Silver439/DotProduct/blob/master/picture/Screenshot%2020-10-18%192930.png)
+   * ![Screenshot 2020-10-18 191828](https://github.com/Silver439/DotProduct/raw/master/picture/Screenshot%2020-10-18%191828.png)
+   * ![Screenshot 2020-10-18 192930](https://github.com/Silver439/DotProduct/raw/master/picture/Screenshot%2020-10-18%192930.png)
    * 以上两个结果所用测试数据分别为两组个数为200M，范围-1000——1000的浮点数。可以看到用float进行两亿次计算后精度损失非常大。单从效率来看，分块要优于并行，固以下主程序设计中我的计算将用分块处理。
 ## 主程序：
 ####  输入&输出：
@@ -160,10 +160,10 @@
    * 这里check2（）在处理异常的同时还记录了该字符串内所含数字的多少。
  * 以下是一些异常输入以及对应的输出结果：
    
-   * ![Screenshot 2020-10-18 193550](https://github.com/Silver439/DotProduct/blob/master/picture/Screenshot%2020-10-18%193550.png)
-   * ![Screenshot 2020-10-18 193636](https://github.com/Silver439/DotProduct/blob/master/picture/Screenshot%2020-10-18%193636.png)
-   * ![Screenshot 2020-10-18 193659](https://github.com/Silver439/DotProduct/blob/master/picture/Screenshot%2020-10-18%193659.png)
-   * ![Screenshot 2020-10-18 202056](https://github.com/Silver439/DotProduct/blob/master/picture/Screenshot%2020-10-18%202056.png)
+   * ![Screenshot 2020-10-18 193550](https://github.com/Silver439/DotProduct/raw/master/picture/Screenshot%2020-10-18%193550.png)
+   * ![Screenshot 2020-10-18 193636](https://github.com/Silver439/DotProduct/raw/master/picture/Screenshot%2020-10-18%193636.png)
+   * ![Screenshot 2020-10-18 193659](https://github.com/Silver439/DotProduct/raw/master/picture/Screenshot%2020-10-18%193659.png)
+   * ![Screenshot 2020-10-18 202056](https://github.com/Silver439/DotProduct/raw/master/picture/Screenshot%2020-10-18%202056.png)
  * 以上便是对输入异常处理的部分。
 #### 计算部分：
 * 计算采用分组的方法，先将两个向量的各个分量存入两个动态数组，再每十个为一组进行运算。最后再计算余下的小于十个的部分。代码如下：
@@ -192,8 +192,8 @@
   	}
   ```
    * 结果测试：
-   * ![Screenshot 2020-10-18 193735](https://github.com/Silver439/DotProduct/blob/master/picture/Screenshot%2020-10-18%193735.png)
-   * ![Screenshot 2020-10-18 201414](https://github.com/Silver439/DotProduct/blob/master/picture/Screenshot%2020-10-18%201414.png)
+   * ![Screenshot 2020-10-18 193735](https://github.com/Silver439/DotProduct/raw/master/picture/Screenshot%2020-10-18%193735.png)
+   * ![Screenshot 2020-10-18 201414](https://github.com/Silver439/DotProduct/raw/master/picture/Screenshot%2020-10-18%201414.png)
 
  *以上便是我在此次作业中完成的功能。本次作业我花费时间较长，有很大一部分时间在处理计算的精度问题。我在测试代码中也通过字符串的处理方式写了小数高精度乘法，但在200M数据情况下运行所花费时间极其长久，完全没有应用价值。的确既想要精度又想要速度是很难实现的。本次优化算法其实比较简单，但是效率的提升还是比较明显。最终的结果无论是在精度还是速度上都与openblas有较大差距，但在不断优化尝试的过程中我也收益良多。
 
