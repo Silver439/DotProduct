@@ -101,11 +101,11 @@
    * 这里check2（）在处理异常的同时还记录了该字符串内所含数字的多少。
  * 以下是一些异常输入以及对应的输出结果：
    
-   * ![](./picture/3.jpg)
-   * ![Alt text](https://github.com/Silver439/DotProduct/raw/master/picture/4.jpg)
-   * ![Alt text](https://github.com/Silver439/DotProduct/raw/master/picture/5.jpg)
+   * ![3.jpg](./picture/3.jpg)
+   * ![4.jpg](https://github.com/Silver439/DotProduct/raw/master/picture/4.jpg)
+   * ![5.jpg](https://github.com/Silver439/DotProduct/raw/master/picture/5.jpg)
    * 用户输入数字间的空格数没有限制，例如1     1 1是可以被允许的：
-   * ![Alt text](https://github.com/Silver439/DotProduct/raw/master/picture/6.jpg)
+   * ![6.jpg](https://github.com/Silver439/DotProduct/raw/master/picture/6.jpg)
  * 以上便是对输入异常处理的部分。
 #### 计算部分：
 * 计算采用分组的方法，先将两个向量的各个分量存入两个动态数组，再每十个为一组进行运算。最后再计算余下的小于十个的部分。代码如下：
@@ -134,11 +134,11 @@
   	}
   ```
    * 结果测试：
-   * ![Alt text](https://github.com/Silver439/DotProduct/raw/master/picture/7.jpg)
-   * ![Alt text](https://github.com/Silver439/DotProduct/raw/master/picture/8.jpg)
+   * ![7.jpg](https://github.com/Silver439/DotProduct/raw/master/picture/7.jpg)
+   * ![8.jpg](https://github.com/Silver439/DotProduct/raw/master/picture/8.jpg)
    * 对与较长的向量，以长度为200M为例，运行Dot1.cpp得到如下结果：
-   * ![Alt text](https://github.com/Silver439/DotProduct/raw/master/picture/1.jpg)
-   * ![Alt text](https://github.com/Silver439/DotProduct/raw/master/picture/2.jpg)
+   * ![1.jpg](https://github.com/Silver439/DotProduct/raw/master/picture/1.jpg)
+   * ![2.jpg)](https://github.com/Silver439/DotProduct/raw/master/picture/2.jpg)
    * 以上两个结果是对于两组文件进行计算得到的。每组文件包含2亿个float数字。两个图中共四个结果，第一个结果是使用分块算法优化，即每个循环处理10个数据；第二个结果是不进行任何优化所得到的结果。第三个结果是同样使用分块优化，但每个循环处理20个数据。第四个结果是通过调用openblas中的cblas—sdot（）函数得到的。
    * 可以看到优化后的有了速度明显的提升，但在精确度方面有所下降。
 ## 总结：
