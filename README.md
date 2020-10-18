@@ -163,6 +163,7 @@
    * ![Screenshot 2020-10-18 193550](https://github.com/Silver439/DotProduct/blob/master/picture/Screenshot%202020-10-18%20193550.png)
    * ![Screenshot 2020-10-18 193636](https://github.com/Silver439/DotProduct/blob/master/picture/Screenshot%202020-10-18%20193636.png)
    * ![Screenshot 2020-10-18 193659](https://github.com/Silver439/DotProduct/blob/master/picture/Screenshot%202020-10-18%20193659.png)
+      * 可以允许相邻数字间存在任意多个空格，例如：
    * ![Screenshot 2020-10-18 202056](https://github.com/Silver439/DotProduct/blob/master/picture/Screenshot%202020-10-18%20202056.png)
  * 以上便是对输入异常处理的部分。
 #### 计算部分：
