@@ -101,7 +101,7 @@
    * 这里check2（）在处理异常的同时还记录了该字符串内所含数字的多少。
  * 以下是一些异常输入以及对应的输出结果：
    
-   * ![Alt text](./picture/3.jpg)
+   * ![](./picture/3.jpg)
    * ![Alt text](https://github.com/Silver439/DotProduct/raw/master/picture/4.jpg)
    * ![Alt text](https://github.com/Silver439/DotProduct/raw/master/picture/5.jpg)
    * 用户输入数字间的空格数没有限制，例如1     1 1是可以被允许的：
